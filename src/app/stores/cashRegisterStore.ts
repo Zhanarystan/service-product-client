@@ -10,9 +10,10 @@ import { EstimateProductCreate, EstimateServiceCreate } from "../models/Estimate
 import { store } from "./store";
 
 export default class CashRegisterStore {
+
     cashRegisterProducts: EstablishmentProduct[] = [];
     cashRegisterServices: EstablishmentService[] = [];
-    cart: Cart = {cartProducts: [] as EstablishmentProduct[], cartServices: [] as EstablishmentService[], sum: 0};
+    cart: Cart = { cartProducts: [] as EstablishmentProduct[], cartServices: [] as EstablishmentService[], sum: 0 };
     message: string = "";
     loading: boolean = false;
     productsTabSelected = true;
@@ -200,3 +201,4 @@ export default class CashRegisterStore {
         this.cart.sum = servicesSum + productsSum;
     }
 }
+

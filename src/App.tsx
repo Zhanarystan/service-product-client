@@ -28,8 +28,10 @@ import ServiceListPage from './features/admin/service/ServiceListPage';
 import ServiceCreatePage from './features/admin/service/ServiceCreatePage';
 import ServiceEditPage from './features/admin/service/ServiceEditPage';
 import ProductListToAddPage from './features/enterprise/productsToAdd/ProductListToAddPage';
-import AnalyticsPage from './features/enterprise/analytics/AnalyticsPage';
 import { User } from './app/models/user';
+import SalesForPeriodPage from './features/enterprise/analytics/SalesForPeriodPage';
+import PredictSalesForDays from './features/enterprise/analytics/PredictSalesForDays';
+import ProviderFinderPage from './features/enterprise/analytics/ProviderFinderPage';
 
 
 function App() {
@@ -82,7 +84,9 @@ function PrivateEnterpriseRoutes() {
         <Route path="employees/create" element={<EmployeeCreatePage />} />
         <Route path="products" element={<ProductsPage />} />
         <Route path="products-to-add" element={<ProductListToAddPage />} />
-        <Route path="analytics" element={<AnalyticsPage />} />
+        <Route path="sales-for-period" element={<SalesForPeriodPage />} />
+        <Route path="prediction-for-days" element={<PredictSalesForDays />} />
+        <Route path="parse-data" element={<ProviderFinderPage />} /> 
       </Routes>
     </>
   );

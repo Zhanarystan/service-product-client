@@ -5,6 +5,7 @@ import DatePicker from "react-datepicker";
 import 'react-datepicker/dist/react-datepicker.css';
 import { useStore } from "../../../app/stores/store";
 import { SalesForPeriodRequestData } from "../../../app/models/dataset";
+import { formatDate } from "../../../app/dateHelpers";
 // import { DateRangeInput, FocusedInput, OnDatesChangeProps } from "@datepicker-react/styled";
 const data = [
     {
@@ -57,7 +58,7 @@ const data = [
 
 
 
-export default observer(function AnalyticsPage() {
+export default observer(function SalesForPeriodPage() {
 
     const { analyticsStore } = useStore();
 
@@ -111,7 +112,10 @@ export default observer(function AnalyticsPage() {
                         }}
                     >
                         <CartesianGrid strokeDasharray="3 3" />
-                        <XAxis dataKey="date" />
+                        <XAxis 
+                            dataKey="date"
+                            tickFormatter={(date) => formatDate(date)}    
+                        />
                         <YAxis />
                         <Tooltip />
                         <Legend />

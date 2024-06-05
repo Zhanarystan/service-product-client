@@ -5,6 +5,8 @@ import { store } from "./store";
 // import { history } from "../..";
 
 export default class EstablishmentStore {
+
+    
     establishmentList: Establishment[] = [];
     establishment: EstablishmentWithList | undefined = undefined;
     isEstablishmentCreated: boolean = false;

@@ -11,7 +11,9 @@ let routes = [
     "/enterprise/products",
     "/enterprise/establishment",
     "/profile",
-    "/enterprise/analytics"
+    "/enterprise/sales-for-period",
+    "/enterprise/prediction-for-days",
+    "/enterprise/parse-data"
 ]
 export default observer(function Navbar() {
     const {userStore: {getUser, logout, user}} = useStore();
@@ -37,7 +39,13 @@ export default observer(function Navbar() {
                             Заведение
                         </Link>
                         <Link className={location.pathname === routes[5] ? "item active" : "item"} to={routes[5]}>
-                            Аналитика
+                            Продажи за период
+                        </Link>
+                        <Link className={location.pathname === routes[6] ? "item active" : "item"} to={routes[6]}>
+                            Прогнозирование продаж
+                        </Link>
+                        <Link className={location.pathname === routes[7] ? "item active" : "item"} to={routes[7]}>
+                            Нахождение товара
                         </Link>
                     </>
                 : ""}

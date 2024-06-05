@@ -9,7 +9,7 @@ import { ProductCreate, ProductDetail, ProductListItem } from "../models/product
 import { ServiceCreate, ServiceDetail, ServiceListItem } from "../models/service";
 import { User, UserAtEstablishment, UserAtEstablishmentCreate, UserDetail, UserFormValues } from "../models/user";
 import { store } from "../stores/store";
-import { DailySales, SalesForPeriodRequestData } from "../models/dataset";
+import { DailySales, PredictSalesForDaysRequestData, SalesForPeriodRequestData, WildberriesProductData } from "../models/dataset";
 
 
 const sleep = (delay: number) => {
@@ -165,7 +165,9 @@ const ManufacturerRequests = {
 }
 
 const DatasetRequests = {
-    getSalesForPeriod: (data: SalesForPeriodRequestData) => requests.get<DailySales[]>(`/dataset/sales-for-period/${data.establishmentId}?start=${data.start.toISOString().split('T')[0]}&end=${data.end.toISOString().split('T')[0]}`) 
+    getSalesForPeriod: (data: SalesForPeriodRequestData) => requests.get<DailySales[]>(`/dataset/sales-for-period/${data.establishmentId}?start=${data.start.toISOString().split('T')[0]}&end=${data.end.toISOString().split('T')[0]}`), 
+    predictSalesForDays: (data: PredictSalesForDaysRequestData) => requests.get<DailySales[]>(`/dataset/predict-for-days/${data.establishmentId}?days=${data.days}`),
+    findProviders: (query: string) => requests.get<WildberriesProductData[]>(`/dataset/parsed-data?query=${query}`)
 }
 
 const agent = {
@@ -177,7 +179,7 @@ const agent = {
     ServiceRequests,
     MetricRequests,
     ManufacturerRequests,
-    DatasetRequests
+    DatasetRequests,
 }
 
 export default agent;
